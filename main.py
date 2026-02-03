@@ -120,6 +120,8 @@ async def index(request: Request) -> dict:
     logger.info("Chat Event received.", extra={"event": event})
     try:
         event_chat = event.get("chat", {})
+        if "addedToSpacePayload" in event_chat:
+            return {} # ignore added to space events
         app_command_payload = event_chat.get("appCommandPayload", {})
         app_command_metadata = app_command_payload.get("appCommandMetadata", {})
         message = (
