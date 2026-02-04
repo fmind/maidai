@@ -6,6 +6,10 @@ It leverages Google's Generative AI (Gemini via Vertex AI or Google AI Studio) t
 
 ![mAIdAI Avatar](./avatar.png)
 
+![About](./screenshots/about.png)
+![Message](./screenshots/message.png)
+![Slash Commands](./screenshots/slash.png)
+
 ## Goal
 
 The primary goal of mAIdAI is to provide a context-aware conversational agent that knows about your projects, preferences, and documentation. It can:
@@ -136,5 +140,19 @@ Once your service is deployed and has a public URL (e.g., `https://maidai-xyz.a.
 5. In the **Connection settings**, select "HTTP Endpoint".
 6. Configure permissions and visibility (who can call the bot).
 7. Configure the commands (each number is associated with a shortcut).
+
+### Cloud Run Authentication (Recommended)
+
+If your Cloud Run service requires authentication, grant the Google Chat service account permission to invoke it.
+
+```bash
+gcloud run services add-iam-policy-binding [SERVICE_NAME] \
+    --member="serviceAccount:[SERVICE_ACCOUNT_EMAIL]" \
+    --role="roles/run.invoker" \
+    --region [REGION] \
+    --project [PROJECT_ID]
+```
+
+---
 
 Now you can mention `@mAIdAI` in your Google Chat spaces or DM it directly!

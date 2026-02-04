@@ -1,5 +1,4 @@
 # https://just.systems/man/en/
-
 # REQUIRES
 
 gcloud := require("gcloud")
@@ -38,9 +37,9 @@ auth:
 
 # check quality
 check:
-    uv run ty check {{SOURCES}}
-    uv run ruff check {{SOURCES}}
-    uv run ruff format --check {{SOURCES}}
+    uv run ty check {{ SOURCES }}
+    uv run ruff check {{ SOURCES }}
+    uv run ruff format --check {{ SOURCES }}
 
 # clean artifacts
 clean:
@@ -69,14 +68,13 @@ deploy: format check
         --session-affinity \
         --ingress=all \
         --no-allow-unauthenticated \
-        --service-account=$GOOGLE_CLOUD_SERVICE_ACCOUNT \
         --env-vars-file=.env.prod.yaml \
         --source .
 
 # format code and import
 format:
-    uv run ruff check --select=I --fix {{SOURCES}}
-    uv run ruff format {{SOURCES}}
+    uv run ruff check --select=I --fix {{ SOURCES }}
+    uv run ruff format {{ SOURCES }}
 
 # install dependencies
 install:
