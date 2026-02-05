@@ -4,11 +4,9 @@
 
 It leverages Google's Generative AI (Gemini via Vertex AI or Google AI Studio) to understand your specific context and automate responses.
 
-![mAIdAI Avatar](./avatar.png)
-
-![About](./screenshots/about.png)
-![Message](./screenshots/message.png)
-![Slash Commands](./screenshots/slash.png)
+| About | Message | Slash |
+| :---: | :---: | :---: |
+| ![About](./screenshots/about.png) | ![Message](./screenshots/message.png) | ![Slash](./screenshots/slash.png) |
 
 ## Goal
 
@@ -156,3 +154,5 @@ gcloud run services add-iam-policy-binding [SERVICE_NAME] \
 ---
 
 Now you can mention `@mAIdAI` in your Google Chat spaces or DM it directly!
+
+![mAIdAI Avatar](./avatar.png)
